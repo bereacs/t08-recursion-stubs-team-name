@@ -23,14 +23,26 @@ def hanoi(n):
         Tower of Hanoi with n disks.
         Return an integer number of moves.
     """
-    pass
+    if n==1:
+        return 1
+    else:
+        return 2*(n-1)+hanoi(n-1)
   
 # Function 3: Determine if a string is a palindrome.
 def ispalindrome(thestring):
     """ Check if string 'thestring' is a palindrome.
         Return True if so, False otherwise.
     """
-    pass
+    newstring = thestring[:]
+    lenstring = len(thestring)
+    if lenstring ==1 or lenstring ==0:
+        return True
+    else:
+        if newstring[0] == newstring[-1]:
+            newstring = newstring[1:-1]
+            return ispalindrome(newstring)
+        else:
+            return False
   
 # Function 4: Pretty-print a directory tree on your computer
 def printtree(f, prefix=''):
@@ -51,7 +63,21 @@ def printtree(f, prefix=''):
         currently in.
       os.isdir(name) returns True if name is the name of a folder, and false otherwise.
     """
-    pass
+    print(f"{prefix}{'*' * len(prefix)}{os.path.basename(f)}")
+    if os.path.isdir(f):
+        # Get the list of items in the directory
+        items = os.listdir(f)
+
+    if items==0 
+       return false
+
+    for item in items:
+        # Construct the full path of the item
+        full_path = os.path.join(f, item)
+
+        # Recursively call printtree for each item
+        printtree(full_path, prefix + ' ')
+pass
   
 # Helper function for mergesort
 def merge(lista, listb, listc):
